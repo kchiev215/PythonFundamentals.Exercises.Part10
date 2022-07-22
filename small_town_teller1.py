@@ -20,7 +20,8 @@ class Bank:
 
     def add_customer(self, person_id, first_name, last_name):
         if person_id in self.customers:
-            raise ValueError(f"{person_id} is already registered in our system")
+            print("you're not welcomed")
+            # raise ValueError(f"{person_id} is already registered in our system")
         else:
             name = first_name + last_name
             self.customers[person_id] = name
