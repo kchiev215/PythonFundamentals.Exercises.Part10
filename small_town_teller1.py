@@ -20,8 +20,7 @@ class Bank:
 
     def add_customer(self, person: Person):
         if person.id in self.customers:
-            print("you're not welcomed")
-            # raise ValueError(f"{person_id} is already registered in our system")
+            print("you're a current customer")
         else:
             name = person.firstname + ' ' + person.lastname
             self.customers[person.id] = name
@@ -59,4 +58,18 @@ class Bank:
         else:
             raise ValueError(f"Account with id {account_id} does not exist.")
 
+zc_bank = Bank()
+bob = Person(1, "Bob", "Smith")
+zc_bank.add_customer(bob)
+bob_savings = Account(1001, "SAVINGS", bob)
+zc_bank.add_account(bob_savings)
+
+print(zc_bank.balance_inquiry(1001))
+# 0
+zc_bank.deposit_money(1001, 256.02)
+print(zc_bank.balance_inquiry(1001))
+# 256.02
+zc_bank.withdraw_money(1001, 128)
+print(zc_bank.balance_inquiry(1001))
+# 128.02
 
